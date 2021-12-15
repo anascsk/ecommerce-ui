@@ -1,5 +1,5 @@
-
 import styled from "styled-components";
+import Navbar from "../components/Navbar";
 import { mobile } from "../responsive";
 
 const Container = styled.div`
@@ -15,13 +15,14 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+ 
 `;
 
 const Wrapper = styled.div`
-  width: 25%;
+  width: 40%;
 
   padding: 20px;
-  background-color: #fff;
+  background-color: #ffffff22;
   ${mobile({ width: "75%" })}
 `;
 const Title = styled.h1`
@@ -38,6 +39,9 @@ const Input = styled.input`
   min-width: 40%;
   margin: 10px 0px;
   padding: 10px;
+  background-color: #e4e9ebef;
+
+  border: none;
 `;
 
 const Button = styled.button`
@@ -48,32 +52,34 @@ const Button = styled.button`
   color: white;
   cursor: pointer;
   margin-bottom: 10px;
-  `;
+`;
 
 const Link = styled.a`
-    margin: 5px 0px;
-    font-size: 12px;
-    text-decoration: underline;
-    cursor: pointer;
+  margin: 5px 0px;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
 `;
 const Login = () => {
-    return (
-        <Container>
-        <Wrapper>
-          <Title>SIGN IN</Title>
-          <Form>
-            <Input placeholder="Username" />
-            <Input placeholder="password" />
-            
-            
-            
-            <Button>LOGIN</Button>
-            <Link>Forgot Password</Link>
-            <Link>Create an Account</Link>
-          </Form>
-        </Wrapper>
-      </Container>
-    )
-}
+  return (
+    <>
+    <Navbar/>
+    <Container>
+    
+      <Wrapper>
+        <Title>SIGN IN</Title>
+        <Form>
+          <Input placeholder="Username" />
+          <Input placeholder="Password" />
 
-export default Login
+          <Button>LOGIN</Button>
+          <Link>Forgot Password</Link>
+          <Link>Create an Account</Link>
+        </Form>
+      </Wrapper>
+    </Container>
+    </>
+  );
+};
+
+export default Login;

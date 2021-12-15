@@ -66,7 +66,7 @@ import {
   margin: 10px;
   transition: all 0.5s ease;
   &:hover {
-      background-color: #e9f5f5;
+      background-color: #e958b1b5;
       transform: scale(1.1);
   
   }

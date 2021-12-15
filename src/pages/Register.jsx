@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Navbar from "../components/Navbar";
 import { mobile } from "../responsive";
 
 const Container = styled.div`
@@ -20,7 +21,7 @@ const Wrapper = styled.div`
   width: 40%;
 
   padding: 20px;
-  background-color: #fff;
+  background-color: #ffffff22;
   ${mobile({ width: "75%" })}
 `;
 const Title = styled.h1`
@@ -37,6 +38,7 @@ const Input = styled.input`
   min-width: 40%;
   margin: 20px 10px 0px 0px;
   padding: 10px;
+  border: none;
 `;
 const Agreement = styled.span`
   font-size: 12px;
@@ -54,7 +56,10 @@ const Button = styled.button`
 
 const Register = () => {
   return (
+    <>
+    <Navbar/>
     <Container>
+      
       <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
         <Form>
@@ -65,12 +70,13 @@ const Register = () => {
           <Input placeholder="password" />
           <Input placeholder="confirm password" />
           <Agreement>
-            By creating an account sdlj dsefgsdfgsfdgdfgsfdgsrgsfgsgffdesgserfgesrgl<b>PRIVACY AND POLICY</b>
+            By creating an account sdlj dsefgsdfgsfdgdfgsfdgsrgsfgsgffd  fgjh fgh esg<br /><b>PRIVACY AND POLICY</b>
           </Agreement>
           <Button>CREATE</Button>
         </Form>
       </Wrapper>
     </Container>
+    </>
   );
 };
 
