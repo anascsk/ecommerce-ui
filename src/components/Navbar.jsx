@@ -1,18 +1,31 @@
-
-
 import { Badge } from "@material-ui/core";
-import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import {
+  Search,
+  ShoppingCartOutlined,
+  TranslateOutlined,
+} from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import Home from "../pages/Home";
+import logo from "../images/logo.png";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
-  height: 60px;
+  height: 90px;
+  background-color: #b0bee68d;
   ${mobile({ height: "50px" })}
 `;
 
+const Logo = styled.img`
+  border-radius: 15px 15px;
+  width: 170px;
+  height: 50px;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+`;
 const Wrapper = styled.div`
   padding: 10px 20px;
   display: flex;
@@ -27,8 +40,8 @@ const Left = styled.div`
   text-decoration: none;
 `;
 const Center = styled.div`
-  flex: 1;
-  text-decoration: none;
+  /* flex: 1;
+  text-decoration: none; */
 `;
 const Right = styled.div`
   flex: 1;
@@ -45,68 +58,75 @@ const Language = styled.span`
   ${mobile({ display: "none" })}
 `;
 const SearchContainer = styled.div`
-  border: 1px solid lightgray;
+  border: 1px solid #dfe2f5;
   display: flex;
   align-items: center;
   margin-left: 25px;
   padding: 5px;
+  border-radius: 5px;
+  margin-left: 20px;
 `;
-
 
 const Input = styled.input`
   border: none;
+  &:focus {
+    outline: none;
+  }
+  width: 600px;
+  height: 33px;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 5px;
+  margin-right: 20px;
   ${mobile({ width: "50px" })}
 `;
-const Logo = styled.h1`
-  font-weight: bold;
-  justify-content: center;
-  text-align: center;
-  text-decoration: none;
-  ${mobile({ fontSize: "24px" })}
-`;
+
 const MenuItem = styled.div`
   margin-left: 25px;
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #4943a0;
   cursor: pointer;
+  justify-content: space-between;
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 
 const Navbar = () => {
   return (
-   
-      <Container>
-        <Wrapper>
-          <Left>
-            <Language>EN</Language>
-            <SearchContainer style={{ color: "gray", fontSize: 14 }}>
-              <Input placeholder="search" />
-              <Search />
-            </SearchContainer>
-          </Left>
-          <Center>
-            <Link to={'/ecommerce-ui'} style={{ textDecoration: 'none' }} >
-            <Logo>
-              ShopBae
-            </Logo>
-            </Link>
-          </Center>
-          <Right>
-          <Link to={'/register'} style={{ textDecoration: 'none' }} >
-            <MenuItem >SignUp </MenuItem>
-            </Link>
-            <Link to={'/login'} style={{ textDecoration: 'none' }} >
-            <MenuItem>LogIn</MenuItem>
-            </Link>
-            <MenuItem>
+    <Container>
+      <Wrapper>
+        <Left>
+          <Link to={"/ecommerce-ui"}>
+            <Logo src={logo} alt="logo" />
+            {/* <img src={logo}  alt="logo"/> */}
+          </Link>
+          <SearchContainer style={{ color: "gray", fontSize: 14 }}>
+            <Input placeholder="Search for products, brands and more" />
+            <Search />
+          </SearchContainer>
+        </Left>
+        <Center></Center>
+
+        <Right>
+          <Language style={{ marginLeft: 5 }}>
+            <TranslateOutlined />
+          </Language>
+          <Link to={"/register"} style={{ textDecoration: "none" }}>
+            <MenuItem>Register </MenuItem>
+          </Link>
+          <Link to={"/login"} style={{ textDecoration: "none" }}>
+            <MenuItem>Log In</MenuItem>
+          </Link>
+          <MenuItem>
+            <Link to={"/cart"}>
               <Badge badgeContent={4} color="primary">
                 <ShoppingCartOutlined />
               </Badge>
-            </MenuItem>
-          </Right>
-        </Wrapper>
-        
-      </Container>
-   
+            </Link>
+          </MenuItem>
+        </Right>
+      </Wrapper>
+    </Container>
   );
 };
 
